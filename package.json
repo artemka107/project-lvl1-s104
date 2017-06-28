@@ -1,0 +1,23 @@
+{
+  "name": "brain-games-001",
+  "version": "0.0.1",
+  "description": "This package provide some mini games",
+  "main": "brain-game.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublish": "npm run build"
+  },
+  "author": "Artem Ivanets",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "latest",
+    "babel-core": "latest",
+    "babel-preset-env": "latest",
+    "babel-preset-stage-0": "latest"
+  }
+}
