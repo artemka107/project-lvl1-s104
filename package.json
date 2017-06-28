@@ -18,6 +18,7 @@
     "babel-cli": "latest",
     "babel-core": "latest",
     "babel-preset-env": "latest",
-    "babel-preset-stage-0": "latest"
+    "babel-preset-stage-0": "latest",
+    "readline-sync": "^1.4.7"
   }
 }
