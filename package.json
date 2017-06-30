@@ -1,10 +1,10 @@
 {
-  "name": "brain-games-001",
-  "version": "0.0.1",
+  "name": "brain-games-first-game",
+  "version": "0.2.0",
   "description": "This package provide some mini games",
   "main": "brain-game.js",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-even.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
