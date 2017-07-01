@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { cons, car, cdr, toString } from 'hexlet-pairs';
+import { car, cdr } from 'hexlet-pairs';
 
 let name;
 
@@ -8,30 +8,7 @@ const welcome = (rule) => {
   name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log(rule);
-}
-
-const gameProcess = (generator) => {
-
-  for (let counter = 3; counter > 0;) {
-    let pair = generator(),
-        userAnswer,
-        result = cdr(pair);
-        
-    console.log(`Question: ${car(pair)}`);
-    userAnswer = readlineSync.question('Your answer: ')
-    if (userAnswer === 'exit') {
-      endOfGame(true);
-    }
-    if (userAnswer === result) {
-      console.log('Correct!')
-      counter--;
-    } else {
-      console.log(`${userAnswer} is wrong answer, correct answer was ${result}`);
-      counter = 3;
-    }
-  }
-  endOfGame();
-}
+};
 
 // if given true - quits, if nothing - user wins
 const endOfGame = (exit) => {
@@ -39,7 +16,27 @@ const endOfGame = (exit) => {
     console.log(`Congratulations, ${name}!`);
   }
   process.exit();
-}
+};
 
+const gameProcess = (generator) => {
+  for (let counter = 3; counter > 0;) {
+    const pair = generator();
+    const result = cdr(pair);
 
-export {welcome, gameProcess};
+    console.log(`Question: ${car(pair)}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (userAnswer === 'exit') {
+      endOfGame(true);
+    }
+    if (userAnswer === result) {
+      console.log('Correct!');
+      counter -= 1;
+    } else {
+      console.log(`${userAnswer} is wrong answer, correct answer was ${result}`);
+      counter = 3;
+    }
+  }
+  endOfGame();
+};
+
+export { welcome, gameProcess };

@@ -1,11 +1,11 @@
-import {welcome, gameProcess} from '../user-logic';
-import { cons, car, cdr, toString } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
+import { welcome, gameProcess } from '../user-logic';
 
 const rule = 'Answer "yes" if number even otherwise answer "no"';
 
 const generateTask = () => {
-  let expression = Math.ceil(Math.random() * 100),
-      result;
+  const expression = Math.ceil(Math.random() * 100);
+  let result;
 
   if (expression % 2 === 0) {
     result = 'yes';
@@ -14,7 +14,7 @@ const generateTask = () => {
   }
 
   return cons(expression, result);
-}
+};
 
 const game = () => {
   welcome(rule);
