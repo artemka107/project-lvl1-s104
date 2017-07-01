@@ -1,6 +1,6 @@
 {
   "name": "brain-games-artemka",
-  "version": "0.5.2 ",
+  "version": "0.5.2",
   "description": "This package provide some mini games",
   "main": "brain-game.js",
   "bin": {
