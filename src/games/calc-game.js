@@ -3,7 +3,7 @@ import { welcome, gameProcess } from '../user-logic';
 
 const rule = 'What is the result of the expression?';
 
-const generator = (num1, num2) => {
+const exprssionGenerator = (num1, num2) => {
   let expression;
   let result;
   switch (Math.ceil(Math.random() * 3)) {
@@ -29,12 +29,12 @@ const generateTask = () => {
   const operand1 = Math.ceil(Math.random() * 100);
   const operand2 = Math.ceil(Math.random() * 100);
 
-  return generator(operand1, operand2);
+  return exprssionGenerator(operand1, operand2);
 };
 
 const game = () => {
   welcome(rule);
-  gameProcess(generateTask);
+  gameProcess(3, generateTask);
 };
 
 export default game;

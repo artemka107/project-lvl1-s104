@@ -10,33 +10,26 @@ const welcome = (rule) => {
   console.log(rule);
 };
 
-// if given true - quits, if nothing - user wins
-const endOfGame = (exit) => {
-  if (!exit) {
-    console.log(`Congratulations, ${name}!`);
-  }
-  process.exit();
-};
-
-const gameProcess = (generator) => {
-  for (let counter = 3; counter > 0;) {
-    const pair = generator();
+const gameProcess = (attempt, exprssionGenerator) => {
+  if (attempt > 0) {
+    const pair = exprssionGenerator();
     const result = cdr(pair);
 
     console.log(`Question: ${car(pair)}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer === 'exit') {
-      endOfGame(true);
+      // endOfGame(true);
+      return console.log('See you on the next time');
     }
     if (userAnswer === result) {
       console.log('Correct!');
-      counter -= 1;
-    } else {
-      console.log(`${userAnswer} is wrong answer, correct answer was ${result}`);
-      counter = 3;
+      return gameProcess(attempt - 1, exprssionGenerator);
     }
+    console.log(`${userAnswer} is wrong answer, correct answer was ${result}`);
+    return gameProcess(3, exprssionGenerator);
   }
-  endOfGame();
+
+  return console.log(`Congratulations, ${name}!`);
 };
 
 export { welcome, gameProcess };

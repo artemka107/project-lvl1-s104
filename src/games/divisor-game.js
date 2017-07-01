@@ -21,7 +21,7 @@ const generateTask = () => {
 
 const game = () => {
   welcome(rule);
-  gameProcess(generateTask);
+  gameProcess(3, generateTask);
 };
 
 export default game;
