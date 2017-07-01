@@ -1,12 +1,13 @@
 {
   "name": "brain-games-artemka",
-  "version": "0.5.2",
+  "version": "0.6.3",
   "description": "This package provide some mini games",
   "main": "brain-game.js",
   "bin": {
     "brain-even": "dist/bin/brain-even.js",
     "brain-calc": "dist/bin/brain-calc.js",
-    "brain-divisor": "dist/bin/brain-divisor.js"
+    "brain-divisor": "dist/bin/brain-divisor.js",
+    "brain-balance": "dist/bin/brain-balance.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

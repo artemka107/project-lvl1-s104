@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import { welcome, gameProcess } from '../user-logic';
+import { welcome, gameProcess } from '..';
 
 const rule = 'What is the result of the expression?';
 
