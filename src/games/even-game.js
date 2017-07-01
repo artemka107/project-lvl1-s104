@@ -1,7 +1,24 @@
-import { welcome } from '../logic/rules';
+import {welcome, gameProcess} from '../user-logic';
+import { cons, car, cdr, toString } from 'hexlet-pairs';
 
-const playGame = () => {
-  welcome('What is the result of the expression?');
+const rule = 'Answer "yes" if number even otherwise answer "no"';
+
+const generateTask = () => {
+  let expression = Math.ceil(Math.random() * 100),
+      result;
+
+  if (expression % 2 === 0) {
+    result = 'yes';
+  } else {
+    result = 'no';
+  }
+
+  return cons(expression, result);
+}
+
+const game = () => {
+  welcome(rule);
+  gameProcess(generateTask);
 };
 
-export default playGame;
+export default game;
