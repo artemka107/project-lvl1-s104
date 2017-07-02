@@ -4,6 +4,9 @@ import { welcome, gameProcess } from '..';
 const rule = 'Answer "yes", if number is prime otherwise answer "no"';
 
 const isPrime = (num) => {
+  if (num === 1) {
+    return true;
+  }
   let counter = 2;
   while (num % counter !== 0) {
     counter += 1;
@@ -11,9 +14,9 @@ const isPrime = (num) => {
   return counter === num;
 };
 
-const generateAnswer = (number, checkNumber) => {
+const generateAnswer = (number, numberIsPrime) => {
   let result;
-  if (checkNumber) {
+  if (numberIsPrime) {
     result = 'yes';
   } else {
     result = 'no';
