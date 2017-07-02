@@ -34,7 +34,7 @@ const generateTask = () => {
 
 const game = () => {
   welcome(rule);
-  gameProcess(3, generateTask);
+  gameProcess(generateTask);
 };
 
 export default game;

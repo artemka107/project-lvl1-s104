@@ -10,8 +10,10 @@ const welcome = (rule) => {
   console.log(rule);
 };
 
-const gameProcess = (attempt, exprssionGenerator) => {
-  if (attempt > 0) {
+const gameProcess = (exprssionGenerator) => {
+  const attempt = 3;
+  let counter = attempt;
+  while (counter > 0) {
     const pair = exprssionGenerator();
     const result = cdr(pair);
 
@@ -23,10 +25,11 @@ const gameProcess = (attempt, exprssionGenerator) => {
     }
     if (userAnswer === result) {
       console.log('Correct!');
-      return gameProcess(attempt - 1, exprssionGenerator);
+      counter -= 1;
+    } else {
+      console.log(`${userAnswer} is wrong answer, correct answer was ${result}`);
+      counter = attempt;
     }
-    console.log(`${userAnswer} is wrong answer, correct answer was ${result}`);
-    return gameProcess(3, exprssionGenerator);
   }
 
   return console.log(`Congratulations, ${name}!`);

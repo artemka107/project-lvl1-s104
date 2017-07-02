@@ -3,7 +3,7 @@ import { welcome, gameProcess } from '..';
 
 const rule = 'Balance the given number.';
 
-const getArr = (num) => {
+const tranlsateToArr = (num) => {
   const number = String(num);
   const arr = [];
   for (let i = 0; i < number.length; i += 1) {
@@ -12,7 +12,7 @@ const getArr = (num) => {
   return arr;
 };
 
-const getNumber = (arr) => {
+const translateToNumber = (arr) => {
   let number = '';
   for (let i = 0; i < arr.length; i += 1) {
     number += arr[i];
@@ -20,32 +20,30 @@ const getNumber = (arr) => {
   return number;
 };
 
-const sortArr = arr => arr.sort();
-
 const balance = (data) => {
   const array = data;
   array[0] += 1;
-  array[array.length - 1] -= 1;
+  array[data.length - 1] -= 1;
   return array;
 };
 
-const checkOrder = (arr) => {
-  const array = sortArr(arr);
+const sortArr = (arr) => {
+  const array = arr.sort();
   if (array[array.length - 1] - array[0] > 1) {
-    return checkOrder(balance(array));
+    return sortArr(balance(array));
   }
-  return getNumber(arr);
+  return arr;
 };
 
 const generateTask = () => {
   const expression = Math.round(Math.random() * 10000);
-  const result = checkOrder(getArr(expression));
+  const result = translateToNumber(sortArr(tranlsateToArr(expression)));
   return cons(expression, result);
 };
 
 const game = () => {
   welcome(rule);
-  gameProcess(3, generateTask);
+  gameProcess(generateTask);
 };
 
 export default game;
